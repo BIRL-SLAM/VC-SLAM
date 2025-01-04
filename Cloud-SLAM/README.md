@@ -24,7 +24,9 @@
 
 >catlin_make
 
-### 7. Activate the cloud runtime environment and run the cloud_stlam_ksan.py：
+### 7. Based on ROS communication mechanism, open a new terminal to run:
+>roscore
+### 8. Activate the cloud runtime environment and run the cloud_stlam_ksan.py：
 >conda activate cloud-slam
 
 >python cloud_slam_kan.py
