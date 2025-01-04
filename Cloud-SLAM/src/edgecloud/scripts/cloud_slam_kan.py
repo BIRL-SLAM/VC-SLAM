@@ -239,17 +239,17 @@ class Cloud_Slam:
             = extract_data(slam, self.args, graph, intrinsics, tstamps_kf)
         print("len of tstamps_kf: ", len(tstamps_kf))
         print("len of poses_keyframe: ", len(poses_keyframe))
-        with open('/data/xjluo/cloud_udf/src/edgecloud/scripts/result/iclt1_cloud_trajectory-kan.txt', 'w') as file:
+       ''' with open('/data/xjluo/cloud_udf/src/edgecloud/scripts/result/iclt1_cloud_trajectory-kan.txt', 'w') as file:
             for i in range(len(tstamps_kf)):
                 row_data = [tstamps_kf[i]] + list(poses_keyframe[i])
-                file.write(' '.join(map(str, row_data)) + '\n')
+                file.write(' '.join(map(str, row_data)) + '\n')'''
         ### construct mappoint covisibility graph ###
         pointcloud = index_xyz_duv[:,1:4]
-        #保存点云文件
+       ''' #保存点云文件
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(pointcloud)
         o3d.io.write_point_cloud("/data/xjluo/cloud_udf/src/edgecloud/scripts/pcd/iclt1-kan.ply", pcd)
-        #print("Num of pointcloud:",pointcloud)
+        #print("Num of pointcloud:",pointcloud)'''
         #cap-udf
         if (self.old_udf or self.new_udf):
             self.dataset = Dataset(pointcloud)
@@ -393,8 +393,8 @@ class Cloud_Slam:
             plt.ylabel('SNR')
             plt.title('SNR')
             plt.legend()
-            #plt.show()
-            plt.savefig('/data/xjluo/cloud_udf/src/edgecloud/scripts/figure/SNR-fr1room-kan.png')
+            plt.show()
+            #plt.savefig('/data/xjluo/cloud_udf/src/edgecloud/scripts/figure/SNR-fr1room-kan.png')
             ####################################################################################
             # 绘制损失图
             # plt.figure(figsize=(12, 8))
