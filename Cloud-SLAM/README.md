@@ -22,7 +22,7 @@
 
 >cd ..
 
->catlin_make
+>catkin_make
 
 ### 7. Based on ROS communication mechanism, open a new terminal to run:
 >roscore
