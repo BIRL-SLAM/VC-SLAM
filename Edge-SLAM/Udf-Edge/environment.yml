@@ -1,4 +1,4 @@
-name: droid-slam
+name: Edge-SLAM
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - http://mirrors.aliyun.com/anaconda/pkgs/main
