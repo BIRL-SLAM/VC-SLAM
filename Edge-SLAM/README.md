@@ -1,4 +1,4 @@
-# Udf-Edge
+# Edge-SLAM
 Edge-SLAM: Cloud-Edge-SLAM, Udf-Edge.
 ### Construction of Udf-Edge environment
 Compile the Ros package first, and then execute the main function.
