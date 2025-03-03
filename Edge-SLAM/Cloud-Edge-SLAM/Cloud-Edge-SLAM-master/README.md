@@ -1,29 +1,4 @@
 # Cloud-Edge-SLAM
-## Cloud SLAM
-- In server machine, clone this project and switch to branch of cloud slam `git checkout cloud`.
-### Install
-1. Install Droid-SLAM first, then add `self.video.tstamp[ix] = self.video.tstamp[ix+1]` in function `rm_keyframe` in factor_graph.py
-2. Compile the message and action files
-```
-cd src
-catkin_init_workspace
-cd ..
-catkin_make
-```
-3. The codes of cloud slam are developed with this specific Droid-SLAM version. You may need to use this version to avoid potential bugs resulted from updates of Droid-SLAM.
-```
-cd /path/to/Droid-SLAM
-git checkout --hard 92027b31c06f42e4471706bbb46e7eb3cb3a5dd0 # 
-```
-4. Modified the paths at line #27 and #28 and #79 in `src/edgecloud/scripts/cloud_slam.py`  so that Droid-SLAM can be found and launched by the scripts of cloud slam.
-
-### Run
-```python
-conda activate droidenv5 # switch to env for droidslam
-git checkout cloud # switch to branch of cloud slam
-python src/edgecloud/scripts/cloud_slam.py
-```
-
 ## Edge SLAM
 - In client machine, clone this project and switch to branch of edge slam `git checkout master`.
 ### Install
