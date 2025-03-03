@@ -5,6 +5,10 @@ Configure the conda environment of Udf-Edge，then execute:
 ```
 conda env create -f ./Udf-Edge/environment.yml
 ```
+Activate the configured conda environment：
+```
+conda activate Edge-SLAM
+```
 Compile the Ros package first, and then execute the main function.
 ```
 python src/cap-edge/edge.py
