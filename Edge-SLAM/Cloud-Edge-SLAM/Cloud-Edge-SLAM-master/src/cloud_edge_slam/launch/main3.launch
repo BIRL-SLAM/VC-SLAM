@@ -1,0 +1,34 @@
+<launch>
+    <!--<remap from="/camera/image_raw" to="/camera/rgb/image_color"/>-->
+
+    <node name="cloud_edge_slam" pkg="cloud_edge_slam" type="cloud_edge_slam_node" required="true" > 
+        <param name="vocabulary_path" value="$(find cloud_edge_slam)/Vocabulary/ORBvoc.txt" />
+   
+        <param name="setting_path" value="/zclin/Cloud-Edge-SLAM/Cloud-Edge-SLAM-master/src/cloud_edge_slam/config/TUM1.yaml" />
+        <param name="data_type" value="bag" />
+        <param name="data_path" value="/zclin/rgbd_dataset_freiburg1_desk2.bag" />
+
+        <param name="result_path" value="/zclin/Cloud-Edge-SLAM/Cloud-Edge-SLAM-master/src/cloud_edge_slam/results" />
+
+        <param name="cloud_topic_name" value="/cloud_slam" />
+        <param name="merge_anyway" value="false" />
+        <param name="cloud_online" value="true" />
+        <param name="real_online" value="false" />
+        <param name="cloud_merge" value="true" />
+        <param name="save_cloud_bag" value="false" />
+        <param name="wait_cloud_result" value="true" />
+        <param name="main_loop_sleep_ms" value="30" />
+        <param name="sampler_edge_front_kf_num" value="40" />
+        <param name="sampler_edge_back_kf_num" value="40" />
+        <param name="sampler_edge_front_min_time" value="3.0" />
+        <param name="sampler_edge_back_min_time" value="3.0" />
+        <param name="sampler_pd_kp" value="0.8" />
+        <param name="sampler_pd_kd" value="0.08" />
+        <param name="sampler_pd_th" value="12" />
+        <param name="kf_culling" value="false" />
+    </node>
+
+    <!-- memory pub -->
+    <!-- <node name="memory_pub" pkg="cloud_edge_slam" type="pub_memory.py" required="true" />  -->
+    <!-- <node name="evo_server" pkg="cloud_edge_slam" type="evo_node.py" required="true" />  -->
+</launch>

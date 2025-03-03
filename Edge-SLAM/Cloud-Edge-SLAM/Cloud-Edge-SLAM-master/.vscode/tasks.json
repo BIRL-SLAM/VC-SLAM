@@ -1,0 +1,116 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // {
+        //     "type": "shell",
+        //     "label": "source_vision_ws",
+        //     "command": "source ~/ros_all/vision_lib/devel/setup.zsh",
+        //     "args": [],
+        // },
+        {
+            "type": "shell",
+            "label": "rm_devel",
+            "command": "rm -rf devel",
+            "args": [],
+        },
+        {
+            "type": "shell",
+            "label": "catkin_make debug",
+            "command": "catkin_make",
+            "args": [
+                "-j16",
+                "--build",
+                "build_debug",
+                // "--use-ninja",
+                // "-DCATKIN_DEVEL_PREFIX=devel_debug",
+                "-DPYTHON_EXECUTABLE=/usr/bin/python3",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": [
+                // "source_vision_ws",
+                "rm_devel",
+            ],
+            "detail": "catkin_make -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+        },
+        {
+            "type": "shell",
+            "label": "catkin_make release",
+            "command": "catkin_make",
+            "args": [
+                "-j16",
+                "--build",
+                "build_release",
+                // "--use-ninja",
+                // "-DCATKIN_DEVEL_PREFIX=devel_release",
+                "-DPYTHON_EXECUTABLE=/usr/bin/python3",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            //"dependsOn": [
+            //    "rm_devel",
+            //],
+            "detail": "catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+        },
+        {
+            "type": "shell",
+            "label": "catkin_make always debug",
+            "command": "catkin_make",
+            "args": [
+                "-j4",
+                "--build",
+                "build_debug",
+                // "--use-ninja",
+                // "-DCATKIN_DEVEL_PREFIX=devel_debug",
+                "-DPYTHON_EXECUTABLE=/usr/bin/python3",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": [
+                // "source_vision_ws",
+                // "rm_devel",
+            ],
+            "detail": "catkin_make -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+        },
+        {
+            "type": "shell",
+            "label": "catkin_make always release",
+            "command": "catkin_make",
+            "args": [
+                "-j14",
+                "--build",
+                "build_release",
+                // "--use-ninja",
+                // "-DCATKIN_DEVEL_PREFIX=devel_release",
+                "-DPYTHON_EXECUTABLE=/usr/bin/python3",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": [
+                // "source_vision_ws",
+                // "rm_devel",
+            ],
+            "detail": "catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"
+        },
+    ]
+}

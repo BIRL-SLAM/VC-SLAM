@@ -1,0 +1,59 @@
+<launch>
+
+    <remap from="/camera/image_raw" to="/camera/rgb/image_color"/>
+    <node name="cloud_edge_slam" pkg="cloud_edge_slam" type="cloud_edge_slam_node" required="true" > 
+    
+        <param name="vocabulary_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Cloud-Edge-SLAM-master/src/cloud_edge_slam/Vocabulary/ORBvoc.txt" />
+
+        <param name="setting_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Cloud-Edge-SLAM-master/src/cloud_edge_slam/config/TUM2.yaml" /> 
+        <param name="data_type" value="bag" />
+        <!-- <param name="data_path" value="/zclin/climbot_dataset/handheld_dataset/ceiling1.bag" /> -->
+        <!-- param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg1_teddy.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg1_room.bag" /> -->
+        <!--param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg2_pioneer_360.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg1_floor.bag" /> -->
+        <!-- <param name="data_path" value="/zclin/TUM_dataset/cut_dataset/teddy_400_1000_cut.bag" /> -->
+        <!--<param name="data_path" value="/zclin/TUM_dataset/cut_dataset/fr1_room.bag" /> -->
+        <!-- <param name="data_path" value="/zclin/TUM_dataset/cut_dataset/pioneer_0_300_cut.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg2_pioneer_slam2.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg2_pioneer_slam.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg2_360_kidnap.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg1_desk2.bag" /> -->
+        <!-- <param name="data_path" value="/zclin/TUM_dataset/cut_dataset/desk2_0_400_cut.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/Euroc_dataset/MH_04_difficult.bag" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/TUM_dataset/rgbd_dataset_freiburg2_pioneer_slam3.bag" /> -->
+        <!-- <param name="data_path" value="/zclin/dataset/nan_data.bag" /> -->
+
+        <!-- <param name="data_type" value="txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/living_room_traj0_frei_png/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/traj3_frei_png/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/ICL_dataset/cut_dataset_0/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/ICL_dataset/cut_dataset_1/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/Euroc_dataset/MH_01_easy/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/Euroc_dataset/MH_03_medium/rgb.txt" /> -->
+        <!-- <param name="data_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Dataset/Euroc_dataset/V1_03_difficult/rgb.txt" /> -->
+
+        <param name="result_path" value="/home/birl/Udf-Edge/Cloud-Edge-SLAM/Cloud-Edge-SLAM-master/src/cloud_edge_slam/results" />
+        <param ncame="cloud_topic_name" value="/cloud_slam" />
+        
+        <param name="merge_anyway" value="false" />
+        <param name="cloud_online" value="true" />
+        <param name="real_online" value="true" />
+        <param name="cloud_merge" value="true" />
+        <param name="save_cloud_bag" value="false" />
+        <param name="old_udf_cloud_edge" value="false" />
+        <param name="new_udf_cloud_edge" value="true" />
+        <param name="wait_cloud_result" value="true" />
+        <param name="main_loop_sleep_ms" value="30" />
+        <param name="sampler_edge_front_kf_num" value="40" />
+        <param name="sampler_edge_back_kf_num" value="40" />
+        <!-- 参数：是否开启keyframe culling，若为ture，将影响Merge时关联的KF数量，效果不好 -->
+        <param name="sampler_edge_front_min_time" value="1" />
+        <param name="sampler_edge_back_min_time" value="1" />
+        <param name="sampler_pd_kp" value="0.8" />
+        <param name="sampler_pd_kd" value="0.08" />
+        <param name="sampler_pd_th" value="12" />
+        <param name="kf_culling" value="false" />
+    </node>
+
+</launch>
